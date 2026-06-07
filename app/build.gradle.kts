@@ -57,8 +57,12 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
 
     // SDK Oficial de Supabase
-    implementation("io.github.jan-tennert.supabase:postgrest-kt:2.5.0")
-    implementation("io.github.jan-tennert.supabase:gotrue-kt:2.5.0")
+    implementation(platform("io.github.jan-tennert.supabase:bom:2.6.1"))
+    implementation("io.github.jan-tennert.supabase:postgrest-kt")
+    implementation("io.github.jan-tennert.supabase:gotrue-kt")
+    implementation("io.github.jan-tennert.supabase:compose-auth")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
     implementation("androidx.compose.material:material-icons-extended")
-    implementation("io.github.jan-tennert.supabase:android-extensions:2.5.0")}
+    implementation("androidx.navigation:navigation-compose:2.8.5")
+    implementation("io.ktor:ktor-client-cio:2.3.11")
+    implementation("com.google.ai.client.generativeai:generativeai:0.9.0")}
