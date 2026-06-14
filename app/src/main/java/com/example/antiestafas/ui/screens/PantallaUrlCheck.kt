@@ -16,6 +16,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.antiestafas.data.*
+import com.example.antiestafas.data.iaGemini.DiagnosticoIA
+import com.example.antiestafas.data.iaGemini.GeminiService
+import com.example.antiestafas.data.virusTotal.ResultadoVirusTotal
+import com.example.antiestafas.data.virusTotal.VirusTotalService
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)

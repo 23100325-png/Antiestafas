@@ -1,4 +1,4 @@
-package com.example.antiestafas.data
+package com.example.antiestafas.data.virusTotal
 
 data class ResultadoVirusTotal(
     val esPeligrosa: Boolean = false,

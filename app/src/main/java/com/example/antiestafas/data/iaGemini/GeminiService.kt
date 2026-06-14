@@ -1,5 +1,6 @@
-package com.example.antiestafas.data
+package com.example.antiestafas.data.iaGemini
 
+import android.util.Log
 import com.google.ai.client.generativeai.GenerativeModel
 import com.google.ai.client.generativeai.type.content
 import kotlinx.coroutines.Dispatchers
@@ -49,7 +50,7 @@ object GeminiService {
                 )
             } catch (e: Exception) {
                 // 🌟 Esto imprimirá el error real en la pestaña 'Logcat' de Android Studio
-                android.util.Log.e("GEMINI_ERROR", "Fallo total en la API: ${e.message}", e)
+                Log.e("GEMINI_ERROR", "Fallo total en la API: ${e.message}", e)
 
                 return@withContext DiagnosticoIA(
                     esEstafa = false,

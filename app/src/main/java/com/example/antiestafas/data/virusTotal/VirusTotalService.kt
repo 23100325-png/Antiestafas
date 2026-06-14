@@ -1,5 +1,6 @@
-package com.example.antiestafas.data
+package com.example.antiestafas.data.virusTotal
 
+import android.util.Base64
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.json.JSONObject
@@ -7,7 +8,6 @@ import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
-import android.util.Base64
 
 object VirusTotalService {
     private const val API_KEY = "bd237c57b4aac75a13ee485a87aa16493ec1e67c8deb69134b0f95a80d8e720d"
@@ -37,7 +37,10 @@ object VirusTotalService {
                     val malicious = stats.optInt("malicious", 0)
                     val phishing = stats.optInt("phishing", 0)
                     val totalDetecciones = malicious + phishing
-                    val totalGlobalMotores = malicious + phishing + stats.optInt("harmless", 0) + stats.optInt("undetected", 0)
+                    val totalGlobalMotores = malicious + phishing + stats.optInt(
+                        "harmless",
+                        0
+                    ) + stats.optInt("undetected", 0)
 
                     // 🌟 PROCESAMIENTO DINÁMICO DE PROVEEDORES
                     val results = attributes.getJSONObject("last_analysis_results")
