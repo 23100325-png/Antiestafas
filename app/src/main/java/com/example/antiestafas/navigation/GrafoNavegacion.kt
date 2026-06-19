@@ -14,7 +14,7 @@ fun GrafoNavegacion(navController: NavHostController, modifier: Modifier = Modif
         startDestination = DestinosNavegacion.Inicio.ruta,
         modifier = modifier
     ) {
-        composable(DestinosNavegacion.Inicio.ruta) { PantallaInicio() }
+        composable(DestinosNavegacion.Inicio.ruta) { PantallaInicio(navController) }
         composable(DestinosNavegacion.UrlCheck.ruta) { PantallaUrlCheck() }
         composable(DestinosNavegacion.WikiEstafas.ruta) { PantallaWikiEstafas() }
         composable(DestinosNavegacion.Detecciones.ruta) { PantallaDetecciones() }

@@ -29,12 +29,16 @@ fun CardEstadistica(
     valor: Int,
     icono: ImageVector,
     colorIcono: Color,
-    esAlerta: Boolean = false
+    esAlerta: Boolean = false,
+    subValor: Int? = null,
+    subTitulo: String? = null,
+    onClick: () -> Unit = {}
 ) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .height(120.dp),
+            .height(if (subValor != null) 140.dp else 120.dp),
+        onClick = onClick,
         shape = RoundedCornerShape(14.dp),
         colors = CardDefaults.cardColors(
             containerColor = if (esAlerta) Color(0xFF451A03) else Color(0xFF1E293B) // Fondo rojizo si hay alertas reales
@@ -57,12 +61,22 @@ fun CardEstadistica(
                     tint = colorIcono,
                     modifier = Modifier.size(24.dp)
                 )
-                Text(
-                    text = valor.toString(),
-                    fontSize = 22.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = if (esAlerta) Color(0xFFF87171) else Color.White
-                )
+                Column(horizontalAlignment = Alignment.End) {
+                    Text(
+                        text = valor.toString(),
+                        fontSize = 22.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = if (esAlerta) Color(0xFFF87171) else Color.White
+                    )
+                    if (subValor != null) {
+                        Text(
+                            text = "$subValor ${subTitulo ?: ""}",
+                            fontSize = 12.sp,
+                            fontWeight = FontWeight.Medium,
+                            color = Color(0xFFF87171)
+                        )
+                    }
+                }
             }
             Text(
                 text = titulo,

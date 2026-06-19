@@ -81,6 +81,7 @@ fun PantallaUrlCheck() {
                             tipo_escaneo = "url",
                             origen_datos = inputUrl,
                             resultado = if (resultado.esPeligrosa) "malicioso" else "seguro",
+                            detalle_ia = if (resultado.esPeligrosa) "${resultado.deteccionesMaliciosas} security vendors flagged this URL" else null,
                             alerta_generada = resultado.esPeligrosa
                         )
                         SupabaseRepository.registrarEscaneo(nuevoEscaneo)
@@ -172,6 +173,7 @@ fun PantallaUrlCheck() {
                             tipo_escaneo = "sms", // Se asume como mensaje/SMS por defecto
                             origen_datos = if(inputTexto.length > 30) inputTexto.take(30) + "..." else inputTexto,
                             resultado = if (resultadoIA.esEstafa) "sospechoso" else "seguro",
+                            detalle_ia = if (resultadoIA.esEstafa) resultadoIA.explicacion else null,
                             alerta_generada = resultadoIA.esEstafa
                         )
                         SupabaseRepository.registrarEscaneo(nuevoEscaneo)

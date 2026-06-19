@@ -18,7 +18,7 @@ object GeminiService {
     private const val API_KEY = ""
 
     private val model = GenerativeModel(
-        modelName = "gemini-3.5-flash",
+        modelName = "gemini-2.5-flash",//"gemini-3.5-flash",
         apiKey = API_KEY,
         // En versiones recientes, las systemInstructions se pasan de esta manera estructurada
         systemInstruction = content {
@@ -49,7 +49,6 @@ object GeminiService {
                     explicacion = jsonObject.optString("explicacion", "No se pudo generar una explicación.")
                 )
             } catch (e: Exception) {
-                // 🌟 Esto imprimirá el error real en la pestaña 'Logcat' de Android Studio
                 Log.e("GEMINI_ERROR", "Fallo total en la API: ${e.message}", e)
 
                 return@withContext DiagnosticoIA(
